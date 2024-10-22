@@ -9,6 +9,7 @@ services:
       # Must always have EULA accepted
       EULA: ${ALL_EULA:-true}
       TYPE: vanilla
+      VERSION: latest
 
       #Using variables to keep all in sync
       ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
@@ -54,6 +55,7 @@ services:
       # Must always have EULA accepted
       EULA: ${ALL_EULA:-true}
       TYPE: ${TESTCRAFT_TYPE:-fabric}
+      VERSION: ${TESTCRAFT_VERSION:-latest}
 
       #Using variables to keep all in sync
       ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
@@ -83,9 +85,49 @@ services:
       # Options: always, unless-stopped, no
       restart: ${ALL_RESTART:-unless-stopped}
 
-      # Will add more later. Testing SVC multiple servers first
+      # Duplicating SMOcraft, to test on latest
       MODRINTH_PROJECTS: |
+        architectury-api
+        armor-poser
+        audioplayer
+        better-stats
+        c2me-fabric
+        calcmod
+        capes
+        cardinal-components-api
+        cloth-config
+        collective
+        coord-finder
+        debugify
+        enhanced-groups
+        fabric-api
+        fabric-language-kotlin
+        ferrite-core
+        fish-on-the-line
+        jade
+        just-mob-heads
+        just-player-heads
+        krypton
+        lithium
+        modernfix
+        passive-shield
+        pet-names
+        placeholder-api
+        polymorph
+        scalablelux
+        server-replay
+        silence-mobs
         simple-voice-chat
+        spark
+        status
+        tcdcommons
+        trade-cycling
+        view-distance-fix
+        villager-names-serilum
+        voice-chat-interaction
+        yacl
+      MODRINTH_DOWNLOAD_DEPENDENCIES: required
+      MODRINTH_ALLOWED_VERSION_TYPE: alpha
 
     # Volumes to keep data
     volumes:
@@ -107,6 +149,7 @@ services:
       # Must always have EULA accepted
       EULA: ${ALL_EULA:-true}
       TYPE: ${SMOCRAFT_TYPE:-FABRIC}
+      VERSION: ${SMOCRAFT_VERSION:-latest}
 
       #Using variables to keep all in sync
       ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
