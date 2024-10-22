@@ -147,79 +147,79 @@ services:
       # This is the full list of all mods I like to use.
       # I am using this for my own personal usage. I am not endorsing anyone or anything listed
       MODRINTH_PROJECTS: |
-        animatica
+        # animatica
         architectury-api
         armor-poser
         audioplayer
-        auto-clicker
-        better-ping-display-fabric
+        # auto-clicker
+        # better-ping-display-fabric
         better-stats
-        betterf3
+        # betterf3
         bl4cks-sit
         c2me-fabric
         calcmod
         capes
         cardinal-components-api
-        chat-heads
-        clean-f3
+        # chat-heads
+        # clean-f3
         cloth-config
         collective
-        continuity
+        # continuity
         coord-finder
-        cubes-without-borders
-        cull-leaves
+        # cubes-without-borders
+        # cull-leaves
         debugify
-        durability-plus
-        dynamic-fps
-        eating-animation
-        ebe
+        # durability-plus
+        # dynamic-fps
+        # eating-animation
+        # ebe
         enhanced-groups
-        entity-model-features
-        entityculling
-        entitytexturefeatures
+        # entity-model-features
+        # entityculling
+        # entitytexturefeatures
         fabric-api
         fabric-language-kotlin
-        fabrishot
+        # fabrishot
         ferrite-core
         fish-on-the-line
         freecam
-        held-item-info
-        hey-wiki
-        immediatelyfast
-        indium
-        inventory-profiles-next
-        iris
+        # held-item-info
+        # hey-wiki
+        # immediatelyfast
+        # indium
+        # inventory-profiles-next
+        # iris
         jade
         just-mob-heads
         just-player-heads
         krypton
-        libipn
-        lighty
+        # libipn
+        # lighty
         lithium
-        modelfix
+        # modelfix
         modernfix
-        modmenu
-        mouse-tweaks
-        not-enough-animations
-        obsidianui
-        optigui
+        # modmenu
+        # mouse-tweaks
+        # not-enough-animations
+        # obsidianui
+        # optigui
         passive-shield
-        peek
+        # peek
         pet-names
         placeholder-api
         polymorph
-        reeses-sodium-options
-        replaymod
-        rrls
-        ryoamiclights
+        # reeses-sodium-options
+        # replaymod
+        # rrls
+        # ryoamiclights
         server-replay
-        shulkerboxtooltip
+        # shulkerboxtooltip
         silence-mobs
         simple-voice-chat
-        sodium
-        sodium-extra
-        sodium-shadowy-path-blocks
-        sound-physics-remastered
+        # sodium
+        # sodium-extra
+        # sodium-shadowy-path-blocks
+        # sound-physics-remastered
         spark
         status
         tcdcommons
@@ -227,10 +227,10 @@ services:
         view-distance-fix
         villager-names-serilum
         voice-chat-interaction
-        xaeros-minimap
-        xaeros-world-map
+        # xaeros-minimap
+        # xaeros-world-map
         yacl
-        zoomify
+        # zoomify
       MODRINTH_DOWNLOAD_DEPENDENCIES: required
       MODRINTH_ALLOWED_VERSION_TYPE: beta
 
