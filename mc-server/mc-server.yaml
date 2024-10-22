@@ -231,6 +231,8 @@ services:
         xaeros-world-map
         yacl
         zoomify
+      MODRINTH_DOWNLOAD_DEPENDENCIES: required
+      MODRINTH_ALLOWED_VERSION_TYPE: beta
 
     # Volumes to keep data
     volumes:
