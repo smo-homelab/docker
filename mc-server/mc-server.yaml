@@ -1,0 +1,280 @@
+services:
+  # Vanilla Minecraft server
+  vanilla:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+
+    environment:
+      # Must always have EULA accepted
+      EULA: true
+      # Autostop or Autopause, not both
+      ENABLE_AUTOSTOP: true
+      AUTOSTOP_TIMEOUT_INIT: 1800
+      AUTOSTOP_TIMEOUT_EST: 3600
+      # ENABLE_AUTOPAUSE: true
+      # AUTOPAUSE_TIMEOUT_INIT: 600
+      # AUTOPAUSE_TIMEOUT_EST: 3600
+
+      # My basic preferred settings
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 4G
+      ENABLE_ROLLING_LOGS: true
+      USE_AIKAR_FLAGS: true
+      LOG_TIMESTAMP: true
+      DIFFICULTY: hard
+      MODE: survival
+      ENFORCE_WHITELIST: true
+
+      SERVER_NAME: "Vanilla"
+      MOTD: "Welcome to the Vanilla SMO world!"
+      WHITELIST_FILE: whitelist.json
+      ICON: icon.png
+      # Only adding to ease adjustments later if need to switch offline
+      ONLINE_MODE: true
+      # Options: always, unless-stopped, no
+      restart: no
+
+    # Volumes to keep data
+    volumes:
+      - vanilla_data:/data
+      # Pull timezone info from host machine, read only
+      - /etc/timezone:/etc/timezone:ro
+
+  # Basic testing server.
+  testcraft:
+    image: itzg/minecraft-server:${TESTCRAFT_IMAGE_TAG:-latest}
+    tty: true
+    stdin_open: true
+
+    ports:
+      # Port for Simple Voice Chat
+      - "24453:24454/udp"
+
+    environment:
+      # Must always have EULA accepted
+      EULA: true
+      TYPE: ${TESTCRAFT_TYPE:-fabric}
+      # Currently testing options
+      ENABLE_AUTOSTOP: true
+      AUTOSTOP_TIMEOUT_INIT: 1800
+      AUTOSTOP_TIMEOUT_EST: 3600
+      # Currently testing autostop
+      # ENABLE_AUTOPAUSE: true
+      # AUTOPAUSE_TIMEOUT_INIT: 600
+      # AUTOPAUSE_TIMEOUT_EST: 3600
+
+      # Need to input CurseForge API Key if using CF
+      CF_API_KEY: ${MY_CF_API_KEY}
+
+      # My basic preferred settings
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 4G
+      ENABLE_ROLLING_LOGS: true
+      USE_AIKAR_FLAGS: true
+      LOG_TIMESTAMP: true
+      DIFFICULTY: hard
+      MODE: survival
+      ENFORCE_WHITELIST: true
+
+      # Server specific items
+      SERVER_NAME: "testcraft"
+      MOTD: "Welcome to the testcraft world!"
+      WHITELIST_FILE: whitelist.json
+      ICON: icon.png
+      # Only adding to ease adjustments later if need to switch offline
+      ONLINE_MODE: true
+      # Options: always, unless-stopped, no
+      restart: no
+
+      # Mods
+      MODRINTH_PROJECTS: |
+        simple-voice-chat
+
+    # Volumes to keep data
+    volumes:
+      - testcraft_data:/data
+      # Pull timezone info from host machine, read only
+      - /etc/timezone:/etc/timezone:ro
+
+  # My main server
+  smocraft:
+    image: itzg/minecraft-server:${SMOCRAFT_IMAGE_TAG:-latest}
+    tty: true
+    stdin_open: true
+
+    ports:
+      # Port for Simple Voice Chat
+      - "24454:24454/udp"
+
+    environment:
+      # Must always have EULA accepted
+      EULA: true
+      TYPE: ${SMOCRAFT_TYPE:-FABRIC}
+      # Currently testing options
+      ENABLE_AUTOSTOP: true
+      AUTOSTOP_TIMEOUT_INIT: 1800
+      AUTOSTOP_TIMEOUT_EST: 3600
+      # Currently testing autostop
+      # ENABLE_AUTOPAUSE: true
+      # AUTOPAUSE_TIMEOUT_INIT: 600
+      # AUTOPAUSE_TIMEOUT_EST: 3600
+
+      # Need to input CurseForge API Key if using CF
+      CF_API_KEY: ${MY_CF_API_KEY}
+
+      # My basic preferred settings
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 4G
+      ENABLE_ROLLING_LOGS: true
+      USE_AIKAR_FLAGS: true
+      LOG_TIMESTAMP: true
+      DIFFICULTY: hard
+      MODE: survival
+      ENFORCE_WHITELIST: true
+
+      # Server specific items
+      SERVER_NAME: "smocraft"
+      MOTD: "This is SMOcraft!"
+      WHITELIST_FILE: whitelist.json
+      ICON: icon.png
+      # Only adding to ease adjustments later if need to switch offline
+      ONLINE_MODE: true
+      # Options: always, unless-stopped, no
+      restart: no
+
+      # Mods
+      # This is the full list of all mods I like to use.
+      # I am using this for my own personal usage. I am not endorsing anyone or anything listed
+      MODRINTH_PROJECTS: |
+        animatica
+        architectury-api
+        armor-poser
+        audioplayer
+        auto-clicker
+        better-ping-display-fabric
+        better-stats
+        betterf3
+        bl4cks-sit
+        c2me-fabric
+        calcmod
+        capes
+        cardinal-components-api
+        chat-heads
+        clean-f3
+        cloth-config
+        collective
+        continuity
+        coord-finder
+        cubes-without-borders
+        cull-leaves
+        debugify
+        durability-plus
+        dynamic-fps
+        eating-animation
+        ebe
+        enhanced-groups
+        entity-model-features
+        entityculling
+        entitytexturefeatures
+        fabric-api
+        fabric-language-kotlin
+        fabrishot
+        ferrite-core
+        fish-on-the-line
+        freecam
+        held-item-info
+        hey-wiki
+        immediatelyfast
+        indium
+        inventory-profiles-next
+        iris
+        jade
+        just-mob-heads
+        just-player-heads
+        krypton
+        libipn
+        lighty
+        lithium
+        modelfix
+        modernfix
+        modmenu
+        mouse-tweaks
+        not-enough-animations
+        obsidianui
+        optigui
+        passive-shield
+        peek
+        pet-names
+        placeholder-api
+        polymorph
+        reeses-sodium-options
+        replaymod
+        rrls
+        ryoamiclights
+        server-replay
+        shulkerboxtooltip
+        silence-mobs
+        simple-voice-chat
+        sodium
+        sodium-extra
+        sodium-shadowy-path-blocks
+        sound-physics-remastered
+        spark
+        status
+        tcdcommons
+        trade-cycling
+        view-distance-fix
+        villager-names-serilum
+        voice-chat-interaction
+        xaeros-minimap
+        xaeros-world-map
+        yacl
+        zoomify
+
+    # Volumes to keep data
+    volumes:
+      - smocraft_data:/data
+      # Pull timezone info from host machine, read only
+      - /etc/timezone:/etc/timezone:ro
+
+  # Using mc-router to make connections to each server
+  router:
+    image: itzg/mc-router
+    # Make sure that each server container starts first
+    depends_on:
+      - vanilla
+      - testcraft
+      - smocraft
+    environment:
+      # Map the url requested to the server container
+      MAPPING: |
+
+        ${VANILLA_URL}=vanilla:25565
+        ${TESTCRAFT_URL}=testcraft:25565
+        ${SMOCRAFT_URL}=smocraft:25565
+    # Need to specify the port that will be listened to
+    ports:
+      - "25565:25565/tcp"
+      # Simple Voice Chat port needed for testcraft2 (testing)
+      # - "24454:24454/udp"
+
+volumes:
+  vanilla_data:
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${SMB_URL}/vanilla
+      o: username=${SMB_USERNAME},password=${SMB_PASSWORD},uid=1000,gid=1000
+  testcraft_data:
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${SMB_URL}/testcraft
+      o: username=${SMB_USERNAME},password=${SMB_PASSWORD},uid=1000,gid=1000
+  smocraft_data:
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${SMB_URL}/smocraft
+      o: username=${SMB_USERNAME},password=${SMB_PASSWORD},uid=1000,gid=1000
