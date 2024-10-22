@@ -164,7 +164,6 @@ services:
         fabric-language-kotlin
         ferrite-core
         fish-on-the-line
-        freecam
         jade
         just-mob-heads
         just-player-heads
