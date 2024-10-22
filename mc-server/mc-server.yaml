@@ -200,6 +200,7 @@ services:
         fabric-language-kotlin
         ferrite-core
         fish-on-the-line
+        itemswapper
         jade
         just-mob-heads
         just-player-heads

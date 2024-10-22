@@ -40,6 +40,7 @@ immediatelyfast
 indium
 inventory-profiles-next
 iris
+itemswapper
 jade
 just-mob-heads
 just-player-heads
