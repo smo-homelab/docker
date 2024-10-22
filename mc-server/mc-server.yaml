@@ -222,6 +222,8 @@ services:
         view-distance-fix
         villager-names-serilum
         voice-chat-interaction
+        xaeros-minimap
+        xaeros-world-map
         yacl
       MODRINTH_DOWNLOAD_DEPENDENCIES: required
       MODRINTH_ALLOWED_VERSION_TYPE: alpha
