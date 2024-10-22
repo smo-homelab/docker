@@ -149,7 +149,7 @@ services:
       # Must always have EULA accepted
       EULA: ${ALL_EULA:-true}
       TYPE: ${SMOCRAFT_TYPE:-FABRIC}
-      VERSION: ${SMOCRAFT_VERSION:-latest}
+      VERSION: ${SMOCRAFT_VERSION}
 
       #Using variables to keep all in sync
       ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
