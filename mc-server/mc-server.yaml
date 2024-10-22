@@ -1,20 +1,19 @@
 services:
   # Vanilla Minecraft server
   vanilla:
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:${VANILLA_IMAGE_TAG:-latest}
     tty: true
     stdin_open: true
 
     environment:
       # Must always have EULA accepted
-      EULA: true
-      # Autostop or Autopause, not both
-      ENABLE_AUTOSTOP: true
-      AUTOSTOP_TIMEOUT_INIT: 1800
-      AUTOSTOP_TIMEOUT_EST: 3600
-      # ENABLE_AUTOPAUSE: true
-      # AUTOPAUSE_TIMEOUT_INIT: 600
-      # AUTOPAUSE_TIMEOUT_EST: 3600
+      EULA: ${ALL_EULA:-true}
+      TYPE: vanilla
+
+      #Using variables to keep all in sync
+      ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
+      AUTOPAUSE_TIMEOUT_INIT: ${ALL_AUTOPAUSE_TIMEOUT_INIT:-600}
+      AUTOPAUSE_TIMEOUT_EST: ${ALL_AUTOPAUSE_TIMEOUT_EST:-3600}
 
       # My basic preferred settings
       INIT_MEMORY: 1G
@@ -31,9 +30,9 @@ services:
       WHITELIST_FILE: whitelist.json
       ICON: icon.png
       # Only adding to ease adjustments later if need to switch offline
-      ONLINE_MODE: true
+      ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: no
+      restart: ${ALL_RESTART:-unless-stopped}
 
     # Volumes to keep data
     volumes:
@@ -53,18 +52,15 @@ services:
 
     environment:
       # Must always have EULA accepted
-      EULA: true
+      EULA: ${ALL_EULA:-true}
       TYPE: ${TESTCRAFT_TYPE:-fabric}
-      # Currently testing options
-      ENABLE_AUTOSTOP: true
-      AUTOSTOP_TIMEOUT_INIT: 1800
-      AUTOSTOP_TIMEOUT_EST: 3600
-      # Currently testing autostop
-      # ENABLE_AUTOPAUSE: true
-      # AUTOPAUSE_TIMEOUT_INIT: 600
-      # AUTOPAUSE_TIMEOUT_EST: 3600
 
-      # Need to input CurseForge API Key if using CF
+      #Using variables to keep all in sync
+      ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
+      AUTOPAUSE_TIMEOUT_INIT: ${ALL_AUTOPAUSE_TIMEOUT_INIT:-600}
+      AUTOPAUSE_TIMEOUT_EST: ${ALL_AUTOPAUSE_TIMEOUT_EST:-3600}
+
+      # May use CF as well, pre-adding
       CF_API_KEY: ${MY_CF_API_KEY}
 
       # My basic preferred settings
@@ -83,11 +79,11 @@ services:
       WHITELIST_FILE: whitelist.json
       ICON: icon.png
       # Only adding to ease adjustments later if need to switch offline
-      ONLINE_MODE: true
+      ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: no
+      restart: ${ALL_RESTART:-unless-stopped}
 
-      # Mods
+      # Will add more later. Testing SVC multiple servers first
       MODRINTH_PROJECTS: |
         simple-voice-chat
 
@@ -109,18 +105,15 @@ services:
 
     environment:
       # Must always have EULA accepted
-      EULA: true
+      EULA: ${ALL_EULA:-true}
       TYPE: ${SMOCRAFT_TYPE:-FABRIC}
-      # Currently testing options
-      ENABLE_AUTOSTOP: true
-      AUTOSTOP_TIMEOUT_INIT: 1800
-      AUTOSTOP_TIMEOUT_EST: 3600
-      # Currently testing autostop
-      # ENABLE_AUTOPAUSE: true
-      # AUTOPAUSE_TIMEOUT_INIT: 600
-      # AUTOPAUSE_TIMEOUT_EST: 3600
 
-      # Need to input CurseForge API Key if using CF
+      #Using variables to keep all in sync
+      ENABLE_AUTOPAUSE: ${ALL_AUTOPAUSE:-true}
+      AUTOPAUSE_TIMEOUT_INIT: ${ALL_AUTOPAUSE_TIMEOUT_INIT:-600}
+      AUTOPAUSE_TIMEOUT_EST: ${ALL_AUTOPAUSE_TIMEOUT_EST:-3600}
+
+      # Pre-adding for later use
       CF_API_KEY: ${MY_CF_API_KEY}
 
       # My basic preferred settings
@@ -139,9 +132,9 @@ services:
       WHITELIST_FILE: whitelist.json
       ICON: icon.png
       # Only adding to ease adjustments later if need to switch offline
-      ONLINE_MODE: true
+      ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: no
+      restart: ${ALL_RESTART:-unless-stopped}
 
       # Mods
       # This is the full list of all mods I like to use.
@@ -206,7 +199,6 @@ services:
     environment:
       # Map the url requested to the server container
       MAPPING: |
-
         ${VANILLA_URL}=vanilla:25565
         ${TESTCRAFT_URL}=testcraft:25565
         ${SMOCRAFT_URL}=smocraft:25565
