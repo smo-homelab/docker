@@ -106,6 +106,7 @@ services:
         fabric-language-kotlin
         ferrite-core
         fish-on-the-line
+        itemswapper
         jade
         just-mob-heads
         just-player-heads
@@ -118,6 +119,7 @@ services:
         polymorph
         scalablelux
         server-replay
+        servux
         silence-mobs
         simple-voice-chat
         spark
@@ -127,6 +129,8 @@ services:
         view-distance-fix
         villager-names-serilum
         voice-chat-interaction
+        xaeros-minimap
+        xaeros-world-map
         yacl
       MODRINTH_DOWNLOAD_DEPENDENCIES: required
       MODRINTH_ALLOWED_VERSION_TYPE: alpha
@@ -216,6 +220,7 @@ services:
         polymorph
         scalablelux
         server-replay
+        servux
         silence-mobs
         simple-voice-chat
         spark
