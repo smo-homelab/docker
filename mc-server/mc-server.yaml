@@ -90,7 +90,6 @@ services:
       # Duplicating SMOcraft, to test on latest
       MODRINTH_PROJECTS: |
         almanac
-        animatica
         architectury-api
         armor-poser
         audioplayer
@@ -116,7 +115,6 @@ services:
         debugify
         durability-plus
         dynamic-fps
-        eating-animation
         ebe
         enhanced-groups
         entity-model-features
@@ -124,7 +122,6 @@ services:
         entitytexturefeatures
         fabric-api
         fabric-language-kotlin
-        fabrishot
         ferrite-core
         fish-on-the-line
         held-item-info
@@ -150,7 +147,6 @@ services:
         more-mobs
         mouse-tweaks
         not-enough-animations
-        obsidianui
         optigui
         passive-shield
         peek
