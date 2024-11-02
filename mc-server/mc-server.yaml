@@ -50,7 +50,7 @@ services:
 
     ports:
       # Port for Simple Voice Chat
-      - "24453:24454/udp"
+      - "24453:24453/udp"
 
     environment:
       # Must always have EULA accepted
@@ -151,7 +151,6 @@ services:
         passive-shield
         peek
         pet-names
-        physicsmod
         placeholder-api
         polymorph
         reeses-sodium-options
