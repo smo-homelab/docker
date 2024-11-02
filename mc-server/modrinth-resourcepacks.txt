@@ -1,8 +1,8 @@
-fresh-animations
-tras-fresh-player
-fast-better-grass
-vanilla-evolved
-low-on-fire
 better-animations
-enchant-icons-countxd
 default-dark-mode
+enchant-icons-countxd
+fast-better-grass
+fresh-animations
+low-on-fire
+tras-fresh-player
+vanilla-evolved
