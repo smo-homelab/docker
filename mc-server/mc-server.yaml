@@ -107,7 +107,6 @@ services:
         clean-f3
         cloth-config
         collective
-        comforts
         continuity
         coord-finder
         cubes-without-borders
