@@ -4,6 +4,7 @@ services:
     image: itzg/minecraft-server:${VANILLA_IMAGE_TAG:-latest}
     tty: true
     stdin_open: true
+    restart: ${ALL_RESTART:-unless-stopped}
 
     environment:
       # Must always have EULA accepted
@@ -34,7 +35,6 @@ services:
       # Only adding to ease adjustments later if need to switch offline
       ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: ${ALL_RESTART:-unless-stopped}
 
     # Volumes to keep data
     volumes:
@@ -47,6 +47,7 @@ services:
     image: itzg/minecraft-server:${TESTCRAFT_IMAGE_TAG:-latest}
     tty: true
     stdin_open: true
+    restart: ${ALL_RESTART:-unless-stopped}
 
     ports:
       # Port for Simple Voice Chat
@@ -85,7 +86,6 @@ services:
       # Only adding to ease adjustments later if need to switch offline
       ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: ${ALL_RESTART:-unless-stopped}
 
       # Duplicating SMOcraft, to test on latest
       MODRINTH_PROJECTS: |
@@ -196,6 +196,7 @@ services:
     image: itzg/minecraft-server:${SMOCRAFT_IMAGE_TAG:-latest}
     tty: true
     stdin_open: true
+    restart: ${ALL_RESTART:-unless-stopped}
 
     ports:
       # Port for Simple Voice Chat
@@ -234,7 +235,6 @@ services:
       # Only adding to ease adjustments later if need to switch offline
       ONLINE_MODE: ${ALL_ONLINE:-true}
       # Options: always, unless-stopped, no
-      restart: ${ALL_RESTART:-unless-stopped}
 
       # Mods
       # This is the full list of all mods I like to use.
@@ -344,6 +344,7 @@ services:
   # Using mc-router to make connections to each server
   router:
     image: itzg/mc-router
+    restart: ${ALL_RESTART:-unless-stopped}
     # Make sure that each server container starts first
     depends_on:
       - vanilla
